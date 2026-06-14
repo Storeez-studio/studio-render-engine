@@ -2,19 +2,17 @@
   "name": "@studio-render/render-fast",
   "version": "0.1.0",
   "private": true,
-  "description": "FLUX Kontext AI enhancement via FAL for fast-tier renders",
+  "description": "FLUX dev + FLUX Kontext AI enhancement via FAL for fast-tier renders",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
-    "test": "echo no-tests"
-  },
+  "scripts": {"build": "tsc", "dev": "tsc --watch", "test": "echo no-tests"},
   "dependencies": {
     "@fal-ai/client": "^1.0.0",
-    "@studio-render/capture": "workspace:*"
+    "@studio-render/capture": "workspace:*",
+    "@studio-render/types": "workspace:*"
   },
   "devDependencies": {
+    "@types/node": "^20.0.0",
     "typescript": "^5.4.0"
   }
 }

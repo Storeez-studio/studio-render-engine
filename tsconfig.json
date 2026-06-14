@@ -1,18 +1,18 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "target": "ES2022",
-    "module": "commonjs",
-    "lib": ["ES2022"],
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
     "outDir": "dist",
-    "rootDir": "src",
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "resolveJsonModule": true
+    "rootDir": "."
   },
+  "references": [
+    {"path": "./shared/types"},
+    {"path": "./shared/config"},
+    {"path": "./packages/capture"},
+    {"path": "./packages/render-fast"},
+    {"path": "./packages/render-quality"},
+    {"path": "./packages/video"},
+    {"path": "./packages/orchestrator"},
+    {"path": "./apps/api"}
+  ],
   "exclude": ["node_modules", "dist"]
 }

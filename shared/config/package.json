@@ -1,0 +1,10 @@
+{
+  "name": "@studio-render/config",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/scenes.js",
+  "types": "dist/scenes.d.ts",
+  "scripts": {"build": "tsc", "dev": "tsc --watch"},
+  "dependencies": {"@studio-render/types": "workspace:*"},
+  "devDependencies": {"typescript": "^5.4.0"}
+}
