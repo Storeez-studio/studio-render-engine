@@ -1,0 +1,19 @@
+{
+  "name": "@studio-render/video",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Seedance-2 image-to-video generation via FAL",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "echo no-tests"
+  },
+  "dependencies": {
+    "@fal-ai/client": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

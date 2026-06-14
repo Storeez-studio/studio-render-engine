@@ -1,0 +1,19 @@
+{
+  "name": "@studio-render/render-quality",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Blender headless render pipeline for quality-tier renders",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "echo no-tests"
+  },
+  "dependencies": {
+    "@studio-render/capture": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

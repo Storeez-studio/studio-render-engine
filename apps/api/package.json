@@ -1,0 +1,32 @@
+{
+  "name": "@studio-render/api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "REST API agency-facing interface for the Gravitaslabs Studio Engine",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "start": "node dist/index.js",
+    "test": "echo no-tests"
+  },
+  "dependencies": {
+    "@studio-render/capture": "workspace:*",
+    "@studio-render/orchestrator": "workspace:*",
+    "@studio-render/render-fast": "workspace:*",
+    "@studio-render/render-quality": "workspace:*",
+    "@studio-render/video": "workspace:*",
+    "express": "^4.19.0",
+    "uuid": "^9.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/uuid": "^9.0.8",
+    "@types/cors": "^2.8.17",
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.0"
+  }
+}
