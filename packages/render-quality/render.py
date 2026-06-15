@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# render.py -- Blender 4.4 Headless Render Script
+# render.py -- Blender 4.3 Headless Render Script
 import bpy, sys, json, argparse, os, math, traceback
 
 def parse_args():

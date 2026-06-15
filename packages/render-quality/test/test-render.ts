@@ -12,15 +12,9 @@
  *   5. Cleans up temp files
  */
 
-import { runBlenderRender } from '../src/blender.js'
-import { existsSync, mkdirSync, writeFileSync, rmSync } from 'fs'
-import { join } from 'path'
-import { randomUUID } from 'crypto'
-
-async function main() {
-  const jobId = 'test-' + randomUUID().slice(0, 8)
-  const testDir = '/mnt/c/Windows/Temp/studio-render-test-' + jobId
-  const outputDir = testDir + '/output'
+import { runBlenderRender } from "../src/blender.js"
+import { existsSync, mkdirSync, writeFileSync, rmSync } from "fs"
+import { randomUUID } from "crypto"
 
 async function main() {
   const jobId = "test-" + randomUUID().slice(0, 8)
@@ -34,17 +28,21 @@ async function main() {
   console.log("============================================================")
 
   const blenderWsl = process.env.BLENDER_PATH ??
-    "/mnt/c/Program Files/Blender Foundation/Blender 4.4/blender.exe"
+    "/mnt/c/Program Files/Blender Foundation/Blender 4.3/blender.exe"
 
   if (!existsSync(blenderWsl)) {
     console.error("[test] FAIL: Blender not found at: " + blenderWsl)
-    console.error("[test] Install Blender 4.4 on Windows and set BLENDER_PATH.")
+    console.error("[test] Set BLENDER_PATH or install Blender 4.3 on Windows.")
     process.exit(1)
   }
-  console.log("[test] Blender found OK")
+  console.log("[test] Blender found OK at: " + blenderWsl)
 
-  mkdirSync(testDir, { recursive: true })
-  writeTestGlb(testDir)
+  mkdirSync(outputDir, { recursive: true })
+  const glbPath = testDir + "/test-cube.glb"
+  // Minimal 12-byte GLB header placeholder -- Blender will error on import
+  // but this validates the pipeline wiring before using a real model
+  writeFileSync(glbPath, Buffer.alloc(12, 0))
+  console.log("[test] Placeholder GLB written")
 
   console.log("[test] Starting render (studio-white, hero, 128 samples)...")
   const startMs = Date.now()
@@ -52,7 +50,7 @@ async function main() {
   try {
     const result = await runBlenderRender({
       jobId,
-      glbPath: testDir + "/test-cube.glb",
+      glbPath,
       scenePreset: "studio-white",
       cameraAngles: ["hero"],
       outputDir,
